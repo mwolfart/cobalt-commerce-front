@@ -1,0 +1,12 @@
+{
+    "home": {
+        "title": "Inicio",
+        "welcome": "Bienvenido a <1>Cobalt Shop</1>"
+    },
+    "nav": {
+        "home": "Inicio"
+    },
+    "footer": {
+        "text": "© Cobalt Shop. Todos los derechos reservados."
+    }
+}
