@@ -4,6 +4,7 @@ import "../globals.css";
 import { Header } from "@/components/feature/header";
 import { Nav } from "@/components/feature/nav";
 import { Footer } from "@/components/feature/footer";
+import initTranslations from "../i18n";
 
 const titilliumWeb = Titillium_Web({
   variable: "--font-titillium",
@@ -34,6 +35,7 @@ export default async function RootLayout({
   params,
 }: Readonly<Props>) {
   const { locale } = await params;
+  const { t } = await initTranslations(locale, ["common"]);
 
   return (
     <html>
@@ -43,9 +45,24 @@ export default async function RootLayout({
         <Header />
         <Nav
           items={[
-            { title: "Clothing", subitems: ["T-Shirts", "Pants", "Shorts"] },
-            { title: "Accessories", subitems: ["Hats", "Bags", "Watches"] },
-            { title: "Books" },
+            { title: t("nav.home") },
+            {
+              title: t("nav.clothing"),
+              subitems: [
+                t("nav.subcategories.tshirts"),
+                t("nav.subcategories.pants"),
+                t("nav.subcategories.shorts"),
+              ],
+            },
+            {
+              title: t("nav.accessories"),
+              subitems: [
+                t("nav.subcategories.hats"),
+                t("nav.subcategories.bags"),
+                t("nav.subcategories.watches"),
+              ],
+            },
+            { title: t("nav.books") },
           ]}
         />
         <main className="flex-grow">{children}</main>

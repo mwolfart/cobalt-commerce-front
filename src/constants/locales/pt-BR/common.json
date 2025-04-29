@@ -4,7 +4,18 @@
         "welcome": "Bem-vindo a <1>Cobalt Shop</1>"
     },
     "nav": {
-        "home": "Início"
+        "home": "Início",
+        "clothing": "Roupas",
+        "accessories": "Acessórios",
+        "books": "Livros",
+        "subcategories": {
+            "tshirts": "Camisetas",
+            "pants": "Calças",
+            "shorts": "Bermudas",
+            "hats": "Chapéus",
+            "bags": "Bolsas",
+            "watches": "Relógios"
+        }
     },
     "footer": {
         "text": "© Cobalt Shop. Todos os direitos reservados."

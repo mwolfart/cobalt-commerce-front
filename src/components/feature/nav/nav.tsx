@@ -15,7 +15,7 @@ export const Nav = ({ items }: Props) => {
               {title}
             </a>
             {subitems && subitems.length > 0 && (
-              <div className="absolute top-[44px] left-0 right-0 h-fit bg-white shadow-lg p-4 hidden group-hover:block">
+              <div className="absolute top-[44px] left-0 w-fit h-fit bg-white shadow-lg p-4 hidden group-hover:block">
                 <ul className="flex flex-col gap-2">
                   {subitems?.map((subitem, subindex) => (
                     <li key={subindex} className="">
