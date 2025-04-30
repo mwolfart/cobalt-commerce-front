@@ -12,9 +12,9 @@ export const ImageCarousel = () => {
 
   return (
     <div className="overflow-hidden w-full h-[260px]">
-      <div className="w-full h-full animate-[scroll_20s_linear_infinite]">
+      <div className="w-full h-full animate-[scroll_20s_linear_infinite] 4xl:animate-none">
         <div className="flex items-center justify-center h-full">
-          {[...images, ...images].map((image, index) => (
+          {[...images, ...images, ...images].map((image, index) => (
             <div
               key={index}
               className="relative h-full min-w-[400px] overflow-clip"

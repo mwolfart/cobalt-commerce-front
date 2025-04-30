@@ -58,11 +58,15 @@ export default async function Home({ params }: Props) {
       <Heading variant="h1" className="pt-8 px-8 text-center md:pt-16">
         <Trans i18nKey="home.welcome" t={t}>
           Welcome to
-          <span className="font-zain text-blue-300 text-6xl">Cobalt Shop</span>
+          <span className="font-zain text-blue-300 text-6xl whitespace-nowrap">
+            Cobalt Shop
+          </span>
         </Trans>
       </Heading>
       <ImageCarousel />
-      <Heading variant="h2">{t("home.top-products")}</Heading>
+      <Heading variant="h2" className="px-8">
+        {t("home.top-products")}
+      </Heading>
       <ProductGrid products={products} />
     </div>
   );
