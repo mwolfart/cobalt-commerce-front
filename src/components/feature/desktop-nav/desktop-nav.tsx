@@ -5,9 +5,9 @@ type Props = {
   }[];
 };
 
-export const Nav = ({ items }: Props) => {
+export const DesktopNav = ({ items }: Props) => {
   return (
-    <nav className="flex items-center justify-center w-full bg-blue-400">
+    <nav className="hidden sm:flex items-center justify-center w-full bg-blue-400">
       <ul className="flex items-center justify-center bg-white gap-[1px]">
         {items.map(({ title, subitems }, index) => (
           <li key={index} className="relative bg-blue-400 group px-4 py-2">

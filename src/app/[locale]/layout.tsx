@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Titillium_Web, Zain } from "next/font/google";
 import "../globals.css";
 import { Header } from "@/components/feature/header";
-import { Nav } from "@/components/feature/nav";
+import { DesktopNav } from "@/components/feature/desktop-nav";
 import { Footer } from "@/components/feature/footer";
 import initTranslations from "../i18n";
 
@@ -37,34 +37,34 @@ export default async function RootLayout({
   const { locale } = await params;
   const { t } = await initTranslations(locale, ["common"]);
 
+  const categories = [
+    { title: t("nav.home") },
+    {
+      title: t("nav.clothing"),
+      subitems: [
+        t("nav.subcategories.tshirts"),
+        t("nav.subcategories.pants"),
+        t("nav.subcategories.shorts"),
+      ],
+    },
+    {
+      title: t("nav.accessories"),
+      subitems: [
+        t("nav.subcategories.hats"),
+        t("nav.subcategories.bags"),
+        t("nav.subcategories.watches"),
+      ],
+    },
+    { title: t("nav.books") },
+  ];
+
   return (
     <html>
       <body
         className={`${titilliumWeb.variable} ${zain.variable} antialiased h-screen flex flex-col`}
       >
-        <Header />
-        <Nav
-          items={[
-            { title: t("nav.home") },
-            {
-              title: t("nav.clothing"),
-              subitems: [
-                t("nav.subcategories.tshirts"),
-                t("nav.subcategories.pants"),
-                t("nav.subcategories.shorts"),
-              ],
-            },
-            {
-              title: t("nav.accessories"),
-              subitems: [
-                t("nav.subcategories.hats"),
-                t("nav.subcategories.bags"),
-                t("nav.subcategories.watches"),
-              ],
-            },
-            { title: t("nav.books") },
-          ]}
-        />
+        <Header items={categories} />
+        <DesktopNav items={categories} />
         <main className="flex-grow">{children}</main>
         <Footer locale={locale} />
       </body>
