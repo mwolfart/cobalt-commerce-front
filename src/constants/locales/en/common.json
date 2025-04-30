@@ -1,7 +1,8 @@
 {
     "home": {
         "title": "Home",
-        "welcome": "Welcome to <1>Cobalt Shop</1>"
+        "welcome": "Welcome to <1>Cobalt Shop</1>",
+        "top-products": "Today's top products"
     },
     "nav": {
         "home": "Home",
