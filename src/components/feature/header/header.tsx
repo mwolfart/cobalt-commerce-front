@@ -1,11 +1,9 @@
-import { MobileNav } from "../mobile-nav";
+import { MobileNav } from "../nav";
+import { NavItem } from "../nav/types";
 
 // TODO fix prop drilling
 type Props = {
-  items: {
-    title: string;
-    subitems?: string[];
-  }[];
+  items: NavItem[];
 };
 
 export const Header = ({ items }: Props) => {

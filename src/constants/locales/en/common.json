@@ -1,4 +1,7 @@
 {
+    "common": {
+        "add-to-cart": "Add to cart"
+    },
     "home": {
         "title": "Home",
         "welcome": "Welcome to <1>Cobalt Shop</1>",
@@ -20,5 +23,46 @@
     },
     "footer": {
         "text": "© Cobalt Shop. All rights reserved."
+    },
+    "product": {
+        "picture-of": "Picture of {{name}}"
+    },
+    "categories": {
+        "clothing": {
+            "title": "Clothing",
+            "description": "Explore our collection of stylish and comfortable clothing."
+        },
+        "t-shirts": {
+            "title": "T-Shirts",
+            "description": "Browse our range of trendy t-shirts."
+        },
+        "pants": {
+            "title": "Pants",
+            "description": "Find the perfect pair of pants for any occasion."
+        },
+        "shorts": {
+            "title": "Shorts",
+            "description": "Stay cool with our selection of shorts."
+        },
+        "accessories": {
+            "title": "Accessories",
+            "description": "Find the perfect accessories to complement your outfit."
+        },
+        "hats": {
+            "title": "Hats",
+            "description": "Complete your look with our stylish hats."
+        },
+        "bags": {
+            "title": "Bags",
+            "description": "Carry your essentials in style with our bags."
+        },
+        "watches": {
+            "title": "Watches",
+            "description": "Stay punctual with our collection of watches."
+        },
+        "books": {
+            "title": "Books",
+            "description": "Discover a wide range of books across various genres."
+        }
     }
 }

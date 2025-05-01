@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Titillium_Web, Zain } from "next/font/google";
 import "../globals.css";
 import { Header } from "@/components/feature/header";
-import { DesktopNav } from "@/components/feature/desktop-nav";
 import { Footer } from "@/components/feature/footer";
 import initTranslations from "../i18n";
+import { DesktopNav } from "@/components/feature/nav";
 
 const titilliumWeb = Titillium_Web({
   variable: "--font-titillium",
@@ -38,24 +38,44 @@ export default async function RootLayout({
   const { t } = await initTranslations(locale, ["common"]);
 
   const categories = [
-    { title: t("nav.home") },
+    { title: t("nav.home"), href: "/" },
     {
       title: t("nav.clothing"),
+      href: "/clothing",
       subitems: [
-        t("nav.subcategories.tshirts"),
-        t("nav.subcategories.pants"),
-        t("nav.subcategories.shorts"),
+        {
+          title: t("nav.subcategories.tshirts"),
+          href: "/t-shirts",
+        },
+        {
+          title: t("nav.subcategories.pants"),
+          href: "/pants",
+        },
+        {
+          title: t("nav.subcategories.shorts"),
+          href: "/shorts",
+        },
       ],
     },
     {
       title: t("nav.accessories"),
+      href: "/accessories",
       subitems: [
-        t("nav.subcategories.hats"),
-        t("nav.subcategories.bags"),
-        t("nav.subcategories.watches"),
+        {
+          title: t("nav.subcategories.hats"),
+          href: "/hats",
+        },
+        {
+          title: t("nav.subcategories.bags"),
+          href: "/bags",
+        },
+        {
+          title: t("nav.subcategories.watches"),
+          href: "/watches",
+        },
       ],
     },
-    { title: t("nav.books") },
+    { title: t("nav.books"), href: "/books" },
   ];
 
   return (

@@ -3,6 +3,7 @@ import initTranslations from "../i18n";
 import { Trans } from "react-i18next/TransWithoutContext";
 import { ImageCarousel } from "@/components/feature/image-carousel";
 import { ProductGrid } from "@/components/feature/product-grid";
+import { ProductEntity } from "@/entities/product";
 
 type Props = {
   params: {
@@ -10,9 +11,10 @@ type Props = {
   };
 };
 
-const products = [
+const products: ProductEntity[] = [
   {
     id: "1",
+    slug: "t-shirt",
     name: "T-Shirt",
     description: "Comfortable cotton t-shirt",
     price: 19.99,
@@ -22,6 +24,7 @@ const products = [
   },
   {
     id: "2",
+    slug: "jeans",
     name: "Jeans",
     description: "Stylish denim jeans",
     price: 49.99,
@@ -31,6 +34,7 @@ const products = [
   },
   {
     id: "3",
+    slug: "sneakers",
     name: "Sneakers",
     description: "Trendy sneakers for everyday wear",
     price: 79.99,
@@ -40,6 +44,7 @@ const products = [
   },
   {
     id: "4",
+    slug: "hat",
     name: "Hat",
     description: "Cool baseball cap",
     price: 15.99,

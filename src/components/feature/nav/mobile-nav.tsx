@@ -1,12 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { NavItem } from "./types";
+import Link from "next/link";
 
 type Props = {
-  items: {
-    title: string;
-    subitems?: string[];
-  }[];
+  items: NavItem[];
 };
 
 export const MobileNav = ({ items }: Props) => {
@@ -28,12 +27,12 @@ export const MobileNav = ({ items }: Props) => {
       >
         <nav>
           <ul className="flex flex-col gap-4">
-            {items.map(({ title, subitems }, index) => (
+            {items.map(({ title, subitems, href }, index) => (
               <li key={index} className="text-blue-800 flex flex-col">
                 <div className="flex gap-4 items-center">
-                  <a className="flex-grow font-semibold text-lg" href="#">
+                  <Link className="flex-grow font-semibold text-lg" href={href}>
                     {title}
-                  </a>
+                  </Link>
                   {subitems && subitems.length > 0 && (
                     <button
                       className="material-symbols-outlined cursor-pointer"
@@ -59,9 +58,12 @@ export const MobileNav = ({ items }: Props) => {
                   <ul className="flex flex-col gap-2 pl-4 pt-2">
                     {subitems?.map((subitem, subindex) => (
                       <li key={subindex}>
-                        <a className="font-semibold text-blue-800" href="#">
-                          {subitem}
-                        </a>
+                        <Link
+                          className="font-semibold text-blue-800"
+                          href={subitem.href}
+                        >
+                          {subitem.title}
+                        </Link>
                       </li>
                     ))}
                   </ul>
