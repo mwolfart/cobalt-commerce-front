@@ -30,7 +30,11 @@ export const MobileNav = ({ items }: Props) => {
             {items.map(({ title, subitems, href }, index) => (
               <li key={index} className="text-blue-800 flex flex-col">
                 <div className="flex gap-4 items-center">
-                  <Link className="flex-grow font-semibold text-lg" href={href}>
+                  <Link
+                    className="flex-grow font-semibold text-lg"
+                    href={href}
+                    onClick={() => setIsOpen(false)}
+                  >
                     {title}
                   </Link>
                   {subitems && subitems.length > 0 && (
@@ -61,6 +65,7 @@ export const MobileNav = ({ items }: Props) => {
                         <Link
                           className="font-semibold text-blue-800"
                           href={subitem.href}
+                          onClick={() => setIsOpen(false)}
                         >
                           {subitem.title}
                         </Link>

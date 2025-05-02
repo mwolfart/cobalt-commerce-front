@@ -72,7 +72,9 @@ export default async function Home({ params }: Props) {
       <Heading variant="h2" className="px-8">
         {t("home.top-products")}
       </Heading>
-      <ProductGrid products={products} />
+      <div className="px-8">
+        <ProductGrid products={products} />
+      </div>
     </div>
   );
 }

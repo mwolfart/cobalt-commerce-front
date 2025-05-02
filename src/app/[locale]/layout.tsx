@@ -5,6 +5,7 @@ import { Header } from "@/components/feature/header";
 import { Footer } from "@/components/feature/footer";
 import initTranslations from "../i18n";
 import { DesktopNav } from "@/components/feature/nav";
+import TranslationsProvider from "@/providers/translations-provider";
 
 const titilliumWeb = Titillium_Web({
   variable: "--font-titillium",
@@ -35,7 +36,7 @@ export default async function RootLayout({
   params,
 }: Readonly<Props>) {
   const { locale } = await params;
-  const { t } = await initTranslations(locale, ["common"]);
+  const { t, resources } = await initTranslations(locale, ["common"]);
 
   const categories = [
     { title: t("nav.home"), href: "/" },
@@ -83,10 +84,16 @@ export default async function RootLayout({
       <body
         className={`${titilliumWeb.variable} ${zain.variable} antialiased h-screen flex flex-col`}
       >
-        <Header items={categories} />
-        <DesktopNav items={categories} />
-        <main className="flex-grow">{children}</main>
-        <Footer locale={locale} />
+        <TranslationsProvider
+          namespaces={["common"]}
+          locale={locale}
+          resources={resources}
+        >
+          <Header items={categories} />
+          <DesktopNav items={categories} />
+          <main className="flex-grow">{children}</main>
+          <Footer locale={locale} />
+        </TranslationsProvider>
       </body>
     </html>
   );

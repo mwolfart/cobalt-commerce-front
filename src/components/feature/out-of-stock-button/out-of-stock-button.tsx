@@ -3,11 +3,11 @@
 import { Button } from "@mwolfart/cobalt-ui";
 import { useTranslation } from "react-i18next";
 
-export const AddToCartButton = () => {
+export const OutOfStockButton = () => {
   const { t } = useTranslation();
   return (
-    <Button variant="primary" onClick={() => console.log("added to cart")}>
-      {t("common.add-to-cart")}
+    <Button variant="primary" disabled onClick={() => {}}>
+      {t("common.out-of-stock")}
     </Button>
   );
 };

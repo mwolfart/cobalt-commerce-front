@@ -1,6 +1,7 @@
 {
     "common": {
-        "add-to-cart": "Add to cart"
+        "add-to-cart": "Add to cart",
+        "out-of-stock": "Out of stock"
     },
     "home": {
         "title": "Home",
