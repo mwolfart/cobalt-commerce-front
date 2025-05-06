@@ -30,7 +30,14 @@
     },
     "cart": {
         "title": "Shopping Cart",
-        "cart-is-empty": "Your cart is empty"
+        "cart-is-empty": "Your cart is empty! Select a category in the menu to start shopping now.",
+        "size": "Size",
+        "color": "Color",
+        "unit-price": "Unit price",
+        "quantity": "Quantity",
+        "total-price": "Total price",
+        "total": "Total",
+        "remove": "Remove"
     },
     "categories": {
         "clothing": {

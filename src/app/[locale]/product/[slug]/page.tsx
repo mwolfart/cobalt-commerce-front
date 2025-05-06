@@ -24,6 +24,8 @@ const product: ProductEntity = {
       size: "M",
       color: "Blue",
       description: "Comfortable cotton t-shirt in blue",
+      thumbnail:
+        "https://res.cloudinary.com/dh0apn34n/image/upload/c_thumb,w_200,g_face/v1745499013/blue-m-shirt_fndcbj.jpg",
     },
     {
       id: "2",
@@ -32,6 +34,8 @@ const product: ProductEntity = {
       size: "L",
       color: "Blue",
       description: "Comfortable cotton t-shirt in blue",
+      thumbnail:
+        "https://res.cloudinary.com/dh0apn34n/image/upload/c_thumb,w_200,g_face/v1745499013/blue-m-shirt_fndcbj.jpg",
     },
     {
       id: "3",
@@ -40,6 +44,8 @@ const product: ProductEntity = {
       size: "M",
       color: "Turquoise",
       description: "Comfortable cotton t-shirt in turquoise",
+      thumbnail:
+        "https://res.cloudinary.com/dh0apn34n/image/upload/c_thumb,w_200,g_face/v1745499013/blue-m-shirt_fndcbj.jpg",
     },
     {
       id: "4",
@@ -48,6 +54,8 @@ const product: ProductEntity = {
       size: "S",
       color: "Turquoise",
       description: "Comfortable cotton t-shirt in turquoise",
+      thumbnail:
+        "https://res.cloudinary.com/dh0apn34n/image/upload/c_thumb,w_200,g_face/v1745499013/blue-m-shirt_fndcbj.jpg",
     },
   ],
 };

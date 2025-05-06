@@ -26,6 +26,8 @@ const products: ProductEntity[] = [
         size: "M",
         color: "Blue",
         description: "Comfortable cotton t-shirt in blue",
+        thumbnail:
+          "https://res.cloudinary.com/dh0apn34n/image/upload/c_thumb,w_200,g_face/v1745499013/blue-m-shirt_fndcbj.jpg",
       },
       {
         id: "2",
@@ -34,6 +36,8 @@ const products: ProductEntity[] = [
         size: "L",
         color: "Blue",
         description: "Comfortable cotton t-shirt in blue",
+        thumbnail:
+          "https://res.cloudinary.com/dh0apn34n/image/upload/c_thumb,w_200,g_face/v1745499013/blue-m-shirt_fndcbj.jpg",
       },
       {
         id: "3",
@@ -42,6 +46,8 @@ const products: ProductEntity[] = [
         size: "M",
         color: "Turquoise",
         description: "Comfortable cotton t-shirt in turquoise",
+        thumbnail:
+          "https://res.cloudinary.com/dh0apn34n/image/upload/c_thumb,w_200,g_face/v1745499013/blue-m-shirt_fndcbj.jpg",
       },
       {
         id: "4",
@@ -50,6 +56,8 @@ const products: ProductEntity[] = [
         size: "S",
         color: "Turquoise",
         description: "Comfortable cotton t-shirt in turquoise",
+        thumbnail:
+          "https://res.cloudinary.com/dh0apn34n/image/upload/c_thumb,w_200,g_face/v1745499013/blue-m-shirt_fndcbj.jpg",
       },
     ],
   },
@@ -66,18 +74,24 @@ const products: ProductEntity[] = [
         price: 49.99,
         qty: 10,
         size: "S",
+        thumbnail:
+          "https://res.cloudinary.com/dh0apn34n/image/upload/c_thumb,w_200,g_face/v1745499013/indigo-pants_jri28h.jpg",
       },
       {
         id: "6",
         price: 49.99,
         qty: 10,
         size: "M",
+        thumbnail:
+          "https://res.cloudinary.com/dh0apn34n/image/upload/c_thumb,w_200,g_face/v1745499013/indigo-pants_jri28h.jpg",
       },
       {
         id: "7",
         price: 49.99,
         qty: 10,
         size: "L",
+        thumbnail:
+          "https://res.cloudinary.com/dh0apn34n/image/upload/c_thumb,w_200,g_face/v1745499013/indigo-pants_jri28h.jpg",
       },
     ],
   },
@@ -94,18 +108,24 @@ const products: ProductEntity[] = [
         price: 39.99,
         qty: 10,
         size: "10",
+        thumbnail:
+          "https://res.cloudinary.com/dh0apn34n/image/upload/c_thumb,w_200,g_face/v1745499014/b-shorts_qfkmov.jpg",
       },
       {
         id: "9",
         price: 39.99,
         qty: 10,
         size: "11",
+        thumbnail:
+          "https://res.cloudinary.com/dh0apn34n/image/upload/c_thumb,w_200,g_face/v1745499014/b-shorts_qfkmov.jpg",
       },
       {
         id: "10",
         price: 39.99,
         qty: 10,
         size: "12",
+        thumbnail:
+          "https://res.cloudinary.com/dh0apn34n/image/upload/c_thumb,w_200,g_face/v1745499014/b-shorts_qfkmov.jpg",
       },
     ],
   },
@@ -121,6 +141,8 @@ const products: ProductEntity[] = [
         id: "11",
         price: 15.99,
         qty: 10,
+        thumbnail:
+          "https://res.cloudinary.com/dh0apn34n/image/upload/c_thumb,w_200,g_face/v1745499013/b-book_zmr8jj.jpg",
       },
     ],
   },

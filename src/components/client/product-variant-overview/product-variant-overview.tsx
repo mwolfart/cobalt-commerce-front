@@ -6,7 +6,7 @@ import { AddToCartButton } from "../add-to-cart-button";
 import { OutOfStockButton } from "../out-of-stock-button";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
-import { ProductEntity } from "@/entities/product";
+import { ProductEntity, ProductVariantEntity } from "@/entities/product";
 import { GroupSelector } from "../group-selector";
 import { getSizeOptionsFromVariantList } from "@/utils/get-size-options-from-variant-list";
 import { getColorOptionsFromVariantList } from "@/utils/get-color-options-from-variant-list";
@@ -19,9 +19,8 @@ type Props = {
 export const ProductVariantOverview = ({ title, product }: Props) => {
   const { t } = useTranslation();
 
-  const [selectedVariant, setSelectedVariant] = useState(
-    product.variants.length > 0 ? product.variants[0] : null
-  );
+  const [selectedVariant, setSelectedVariant] =
+    useState<ProductVariantEntity | null>(null);
 
   const [selectedSize, setSelectedSize] = useState(
     product.variants.length > 0 ? product.variants[0].size : null
@@ -80,26 +79,30 @@ export const ProductVariantOverview = ({ title, product }: Props) => {
             height={384}
             className="object-cover rounded-lg"
             alt={t("product.picture-of", { name: product.name })}
-            src={selectedVariant?.image || product.image || product.thumbnail}
+            src={
+              selectedVariant?.image ||
+              product.image ||
+              selectedVariant?.thumbnail ||
+              product.thumbnail
+            }
           />
         </div>
         {sizeOptions.length > 0 && (
           <GroupSelector
+            value={selectedSize ?? undefined}
             availableOptions={sizeOptions}
             onSelect={setSelectedSize}
           />
         )}
         {colorOptions.length > 0 && (
           <GroupSelector
+            value={selectedColor ?? undefined}
             availableOptions={colorOptions}
             onSelect={setSelectedColor}
           />
         )}
         {selectedVariant && selectedVariant.qty > 0 ? (
-          <AddToCartButton
-            productId={selectedVariant.id}
-            productPrice={selectedVariant.price}
-          />
+          <AddToCartButton product={product} variant={selectedVariant} />
         ) : (
           <OutOfStockButton />
         )}
@@ -110,7 +113,12 @@ export const ProductVariantOverview = ({ title, product }: Props) => {
           height={384}
           className="object-cover rounded-lg"
           alt={t("product.picture-of", { name: product.name })}
-          src={selectedVariant?.image || product.image || product.thumbnail}
+          src={
+            selectedVariant?.image ||
+            product.image ||
+            selectedVariant?.thumbnail ||
+            product.thumbnail
+          }
         />
       </div>
     </div>
