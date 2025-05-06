@@ -80,7 +80,7 @@ export const ProductVariantOverview = ({ title, product }: Props) => {
             height={384}
             className="object-cover rounded-lg"
             alt={t("product.picture-of", { name: product.name })}
-            src={selectedVariant?.image || product.image!}
+            src={selectedVariant?.image || product.image || product.thumbnail}
           />
         </div>
         {sizeOptions.length > 0 && (
@@ -96,7 +96,10 @@ export const ProductVariantOverview = ({ title, product }: Props) => {
           />
         )}
         {selectedVariant && selectedVariant.qty > 0 ? (
-          <AddToCartButton />
+          <AddToCartButton
+            productId={selectedVariant.id}
+            productPrice={selectedVariant.price}
+          />
         ) : (
           <OutOfStockButton />
         )}

@@ -28,6 +28,10 @@
     "product": {
         "picture-of": "Picture of {{name}}"
     },
+    "cart": {
+        "title": "Shopping Cart",
+        "cart-is-empty": "Your cart is empty"
+    },
     "categories": {
         "clothing": {
             "title": "Clothing",

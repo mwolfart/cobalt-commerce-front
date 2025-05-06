@@ -6,6 +6,7 @@ import { Footer } from "@/components/server/footer";
 import initTranslations from "../i18n";
 import { DesktopNav } from "@/components/server/nav";
 import TranslationsProvider from "@/providers/translations-provider";
+import { CartStoreProvider } from "@/providers/cart-provider";
 
 const titilliumWeb = Titillium_Web({
   variable: "--font-titillium",
@@ -89,10 +90,12 @@ export default async function RootLayout({
           locale={locale}
           resources={resources}
         >
-          <Header items={categories} />
-          <DesktopNav items={categories} />
-          <main className="flex-grow">{children}</main>
-          <Footer locale={locale} />
+          <CartStoreProvider>
+            <Header items={categories} />
+            <DesktopNav items={categories} />
+            <main className="flex-grow">{children}</main>
+            <Footer locale={locale} />
+          </CartStoreProvider>
         </TranslationsProvider>
       </body>
     </html>
