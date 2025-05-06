@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@mwolfart/cobalt-ui": "^0.2.0",
+    "@mwolfart/cobalt-ui": "^0.2.2",
     "accept-language": "^3.0.20",
     "i18next-browser-languagedetector": "^8.0.5",
     "i18next-resources-to-backend": "^1.2.1",

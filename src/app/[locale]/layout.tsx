@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Titillium_Web, Zain } from "next/font/google";
 import "../globals.css";
-import { Header } from "@/components/feature/header";
-import { Footer } from "@/components/feature/footer";
+import { Header } from "@/components/server/header";
+import { Footer } from "@/components/server/footer";
 import initTranslations from "../i18n";
-import { DesktopNav } from "@/components/feature/nav";
+import { DesktopNav } from "@/components/server/nav";
 import TranslationsProvider from "@/providers/translations-provider";
 
 const titilliumWeb = Titillium_Web({

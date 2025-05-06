@@ -1,69 +1,137 @@
-import { Heading, Typography } from "@mwolfart/cobalt-ui";
-import initTranslations from "@/app/i18n";
+// import initTranslations from "@/app/i18n";
 import { ProductEntity } from "@/entities/product";
-import Image from "next/image";
-import { AddToCartButton } from "@/components/feature/add-to-cart-button";
-import { OutOfStockButton } from "@/components/feature/out-of-stock-button";
+import { ProductVariantOverview } from "@/components/client/product-variant-overview";
 
-type Props = {
-  params: {
-    locale: string;
-    slug: string;
-  };
-};
+// type Props = {
+//   params: {
+//     locale: string;
+//     slug: string;
+//   };
+// };
 
 const product: ProductEntity = {
   id: "1",
   slug: "t-shirt",
   name: "T-Shirt",
   description: "Comfortable cotton t-shirt",
-  price: 19.99,
   thumbnail:
     "https://res.cloudinary.com/dh0apn34n/image/upload/c_thumb,w_200,g_face/v1745499013/blue-m-shirt_fndcbj.jpg",
-  qty: 0,
-  image:
-    "https://res.cloudinary.com/dh0apn34n/image/upload/v1745499013/blue-m-shirt_fndcbj.jpg",
+  variants: [
+    {
+      id: "1",
+      price: 19.99,
+      qty: 10,
+      size: "M",
+      color: "Blue",
+      description: "Comfortable cotton t-shirt in blue",
+    },
+    {
+      id: "2",
+      price: 19.99,
+      qty: 20,
+      size: "L",
+      color: "Blue",
+      description: "Comfortable cotton t-shirt in blue",
+    },
+    {
+      id: "3",
+      price: 21.99,
+      qty: 20,
+      size: "M",
+      color: "Turquoise",
+      description: "Comfortable cotton t-shirt in turquoise",
+    },
+    {
+      id: "4",
+      price: 21.99,
+      qty: 10,
+      size: "S",
+      color: "Turquoise",
+      description: "Comfortable cotton t-shirt in turquoise",
+    },
+  ],
 };
 
-export default async function Category({ params }: Props) {
+// const product: ProductEntity = {
+//   id: "2",
+//   slug: "jeans",
+//   name: "Jeans",
+//   description: "Stylish denim jeans",
+//   thumbnail:
+//     "https://res.cloudinary.com/dh0apn34n/image/upload/c_thumb,w_200,g_face/v1745499013/indigo-pants_jri28h.jpg",
+//   variants: [
+//     {
+//       id: "5",
+//       price: 49.99,
+//       qty: 10,
+//       size: "S",
+//     },
+//     {
+//       id: "6",
+//       price: 49.99,
+//       qty: 10,
+//       size: "M",
+//     },
+//     {
+//       id: "7",
+//       price: 49.99,
+//       qty: 10,
+//       size: "L",
+//     },
+//   ],
+// };
+
+// const product: ProductEntity = {
+//   id: "3",
+//   slug: "sneakers",
+//   name: "Sneakers",
+//   description: "Trendy sneakers for everyday wear",
+//   thumbnail:
+//     "https://res.cloudinary.com/dh0apn34n/image/upload/c_thumb,w_200,g_face/v1745499014/b-shorts_qfkmov.jpg",
+//   variants: [
+//     {
+//       id: "8",
+//       price: 39.99,
+//       qty: 10,
+//       size: "10",
+//     },
+//     {
+//       id: "9",
+//       price: 39.99,
+//       qty: 10,
+//       size: "11",
+//     },
+//     {
+//       id: "10",
+//       price: 39.99,
+//       qty: 10,
+//       size: "12",
+//     },
+//   ],
+// };
+
+// const product: ProductEntity = {
+//   id: "4",
+//   slug: "hat",
+//   name: "Hat",
+//   description: "Cool baseball cap",
+//   thumbnail:
+//     "https://res.cloudinary.com/dh0apn34n/image/upload/c_thumb,w_200,g_face/v1745499013/b-book_zmr8jj.jpg",
+//   variants: [
+//     {
+//       id: "11",
+//       price: 15.99,
+//       qty: 10,
+//     },
+//   ],
+// };
+
+export default async function ProductPage() {
   // const { locale, slug } = await params;
-  const { locale } = await params;
-  const { t } = await initTranslations(locale, ["common"]);
 
   return (
     <div className="flex justify-center pt-8 sm:pt-16">
-      <div className="grid md:grid-cols-2 gap-16 max-w-[1260px] mx-8">
-        <div className="flex flex-col gap-2 h-full">
-          <Heading variant="h2" as="h1">
-            {product.name}
-          </Heading>
-          <div className="flex-grow flex flex-col gap-2">
-            <Typography>{product.description}</Typography>
-            <span className="text-xl text-bold text-blue-500">
-              {product.price}
-            </span>
-          </div>
-          <div className="flex md:hidden flex-col py-2 h-full">
-            <Image
-              width={384}
-              height={384}
-              className="object-cover rounded-lg"
-              alt={t("product.picture-of", { name: product.name })}
-              src={product.image!}
-            />
-          </div>
-          {product.qty > 0 ? <AddToCartButton /> : <OutOfStockButton />}
-        </div>
-        <div className="hidden md:flex flex-col gap-2 h-full">
-          <Image
-            width={384}
-            height={384}
-            className="object-cover rounded-lg"
-            alt={t("product.picture-of", { name: product.name })}
-            src={product.image!}
-          />
-        </div>
-      </div>
+      <ProductVariantOverview title={product.name} product={product} />
     </div>
   );
 }
