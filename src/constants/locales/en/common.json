@@ -1,7 +1,8 @@
 {
     "common": {
         "add-to-cart": "Add to cart",
-        "out-of-stock": "Out of stock"
+        "out-of-stock": "Out of stock",
+        "error-loading-products": "Error loading products"
     },
     "home": {
         "title": "Home",

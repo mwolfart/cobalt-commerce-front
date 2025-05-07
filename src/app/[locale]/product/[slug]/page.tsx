@@ -1,64 +1,66 @@
 // import initTranslations from "@/app/i18n";
-import { ProductEntity } from "@/entities/product";
+import initTranslations from "@/app/i18n";
 import { ProductVariantOverview } from "@/components/client/product-variant-overview";
+import { getProductBySlug } from "@/infrastructure/api/products";
+import { Heading } from "@mwolfart/cobalt-ui";
 
-// type Props = {
-//   params: {
-//     locale: string;
-//     slug: string;
-//   };
-// };
-
-const product: ProductEntity = {
-  id: "1",
-  slug: "t-shirt",
-  name: "T-Shirt",
-  description: "Comfortable cotton t-shirt",
-  thumbnail:
-    "https://res.cloudinary.com/dh0apn34n/image/upload/c_thumb,w_200,g_face/v1745499013/blue-m-shirt_fndcbj.jpg",
-  variants: [
-    {
-      id: "1",
-      price: 19.99,
-      qty: 10,
-      size: "M",
-      color: "Blue",
-      description: "Comfortable cotton t-shirt in blue",
-      thumbnail:
-        "https://res.cloudinary.com/dh0apn34n/image/upload/c_thumb,w_200,g_face/v1745499013/blue-m-shirt_fndcbj.jpg",
-    },
-    {
-      id: "2",
-      price: 19.99,
-      qty: 20,
-      size: "L",
-      color: "Blue",
-      description: "Comfortable cotton t-shirt in blue",
-      thumbnail:
-        "https://res.cloudinary.com/dh0apn34n/image/upload/c_thumb,w_200,g_face/v1745499013/blue-m-shirt_fndcbj.jpg",
-    },
-    {
-      id: "3",
-      price: 21.99,
-      qty: 20,
-      size: "M",
-      color: "Turquoise",
-      description: "Comfortable cotton t-shirt in turquoise",
-      thumbnail:
-        "https://res.cloudinary.com/dh0apn34n/image/upload/c_thumb,w_200,g_face/v1745499013/blue-m-shirt_fndcbj.jpg",
-    },
-    {
-      id: "4",
-      price: 21.99,
-      qty: 10,
-      size: "S",
-      color: "Turquoise",
-      description: "Comfortable cotton t-shirt in turquoise",
-      thumbnail:
-        "https://res.cloudinary.com/dh0apn34n/image/upload/c_thumb,w_200,g_face/v1745499013/blue-m-shirt_fndcbj.jpg",
-    },
-  ],
+type Props = {
+  params: {
+    locale: string;
+    slug: string;
+  };
 };
+
+// const product: ProductEntity = {
+//   id: "1",
+//   slug: "t-shirt",
+//   name: "T-Shirt",
+//   description: "Comfortable cotton t-shirt",
+//   thumbnail:
+//     "https://res.cloudinary.com/dh0apn34n/image/upload/c_thumb,w_200,g_face/v1745499013/blue-m-shirt_fndcbj.jpg",
+//   variants: [
+//     {
+//       id: "1",
+//       price: 19.99,
+//       qty: 10,
+//       size: "M",
+//       color: "Blue",
+//       description: "Comfortable cotton t-shirt in blue",
+//       thumbnail:
+//         "https://res.cloudinary.com/dh0apn34n/image/upload/c_thumb,w_200,g_face/v1745499013/blue-m-shirt_fndcbj.jpg",
+//     },
+//     {
+//       id: "2",
+//       price: 19.99,
+//       qty: 20,
+//       size: "L",
+//       color: "Blue",
+//       description: "Comfortable cotton t-shirt in blue",
+//       thumbnail:
+//         "https://res.cloudinary.com/dh0apn34n/image/upload/c_thumb,w_200,g_face/v1745499013/blue-m-shirt_fndcbj.jpg",
+//     },
+//     {
+//       id: "3",
+//       price: 21.99,
+//       qty: 20,
+//       size: "M",
+//       color: "Turquoise",
+//       description: "Comfortable cotton t-shirt in turquoise",
+//       thumbnail:
+//         "https://res.cloudinary.com/dh0apn34n/image/upload/c_thumb,w_200,g_face/v1745499013/blue-m-shirt_fndcbj.jpg",
+//     },
+//     {
+//       id: "4",
+//       price: 21.99,
+//       qty: 10,
+//       size: "S",
+//       color: "Turquoise",
+//       description: "Comfortable cotton t-shirt in turquoise",
+//       thumbnail:
+//         "https://res.cloudinary.com/dh0apn34n/image/upload/c_thumb,w_200,g_face/v1745499013/blue-m-shirt_fndcbj.jpg",
+//     },
+//   ],
+// };
 
 // const product: ProductEntity = {
 //   id: "2",
@@ -134,12 +136,25 @@ const product: ProductEntity = {
 //   ],
 // };
 
-export default async function ProductPage() {
-  // const { locale, slug } = await params;
+export default async function ProductPage({ params }: Props) {
+  const { locale, slug } = await params;
+  const { t } = await initTranslations(locale, ["common"]);
 
-  return (
-    <div className="flex justify-center pt-8 sm:pt-16">
-      <ProductVariantOverview title={product.name} product={product} />
-    </div>
-  );
+  try {
+    const product = await getProductBySlug(slug);
+
+    return (
+      <div className="flex justify-center pt-8 sm:pt-16">
+        <ProductVariantOverview title={product.name} product={product} />
+      </div>
+    );
+  } catch {
+    return (
+      <div className="flex justify-center pt-8 sm:pt-16">
+        <Heading variant="h3" as="h1">
+          {t("common.error-loading-product")}
+        </Heading>
+      </div>
+    );
+  }
 }
